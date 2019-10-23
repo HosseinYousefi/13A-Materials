@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>JavaScript Example for Top Tables</title>
+		<style>
+			h1 {
+				font-family:serif;
+				font-size:36px;
+				color:#ff0000;
+				text-align:center;
+			}
+			p {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+
+		<h1>Simple password<br>check script</h1>
+
+		<p>Please enter your new password here:<br>
+		<input id="Pword1" type="text" value=""><br>
+		Please confirm your password here:<br>
+		<input id="Pword2" type="text" value="">
+		<br><br>
+		<button type="button" onClick= "passwordCheck()">Submit</button></p>
+		<p id="Check1"></p>
+		<p id="Check2"></p>
+		<p id="Result"></p>
+
+		<script>
+			function passwordCheck() {
+				var pword1 = document.getElementById("Pword1").value;
+				var pword2 = document.getElementById("Pword2").value;
+				var check1 = false;
+				var check2 = false;
+
+				if (pword1 != pword2) {
+					document.getElementById("Check1").innerHTML = "Passwords do not match";
+					check1 = false;
+				} else {
+					document.getElementById("Check1").innerHTML = "";
+					check1 = true;
+				}
+
+				// Enter code to display "Password is too short" if the password is less than 5 characters
+				if (pword1.length < 5) {
+					document.getElementById("Check2").innerHTML = "Password is too short";
+					check2 = false;
+				} else {
+					document.getElementById("Check2").innerHTML = "";
+					check2 = true;
+				}
+
+				// Enter code to display the result: "Please re-enter your password" or "Password stored"
+				if (check1 && check2) {
+					document.getElementById("Result").innerHTML = "Password stored";
+				} else {
+					document.getElementById("Result").innerHTML = "Please re-enter your password";
+				}
+			}
+		</script>
+
+	</body>
+
+</html>
