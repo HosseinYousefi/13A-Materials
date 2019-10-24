@@ -35,28 +35,22 @@
 			function passwordCheck() {
 				var pword1 = document.getElementById("Pword1").value;
 				var pword2 = document.getElementById("Pword2").value;
-				var check1 = false;
-				var check2 = false;
 
 				if (pword1 != pword2) {
 					document.getElementById("Check1").innerHTML = "Passwords do not match";
-					check1 = false;
 				} else {
 					document.getElementById("Check1").innerHTML = "";
-					check1 = true;
 				}
 
 				// Enter code to display "Password is too short" if the password is less than 5 characters
 				if (pword1.length < 5) {
 					document.getElementById("Check2").innerHTML = "Password is too short";
-					check2 = false;
 				} else {
 					document.getElementById("Check2").innerHTML = "";
-					check2 = true;
 				}
 
 				// Enter code to display the result: "Please re-enter your password" or "Password stored"
-				if (check1 && check2) {
+				if (pword1 == pword2 && pword1.length >= 5) {
 					document.getElementById("Result").innerHTML = "Password stored";
 				} else {
 					document.getElementById("Result").innerHTML = "Please re-enter your password";
